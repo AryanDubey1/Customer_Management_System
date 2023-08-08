@@ -1,0 +1,26 @@
+import React from 'react'
+
+export default function ShowCustomer(props) {
+  return (
+    <>
+<table align='center'>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>PhoneNo</th>
+  </tr>
+  {props.arr.map(e=>(<tr>
+    <td>{e.Id}</td>
+    <td>{e.Name}</td>
+    <td>{e.Address}</td>
+    <td>{e.phoneno}</td>
+  </tr>))}
+ 
+  
+</table>
+   </>
+  
+   
+  )
+}

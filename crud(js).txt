@@ -1,0 +1,109 @@
+import React, { useState } from 'react'
+import { AddingCustomers } from './CustomerBackend';
+import ShowCustomer from './ShowCustomer';
+
+export default function Curd() {
+  var[Id,Setid]=useState();
+  var[Name,Setname]=useState('');
+  var[Address,Setaddress]=useState('');
+  var[phoneno,Setphoneno]=useState('');
+  var[Cusarr,SetArr]=useState([]);
+  
+  function ChangeId(e){
+  Setid(e.target.value);
+  }
+  function ChangeName(e){
+    Setname(e.target.value);
+  }
+  function ChangeAddress(e){
+    Setaddress(e.target.value);
+  }
+  function ChangePhoneno(e){
+    Setphoneno(e.target.value);
+  }
+  
+ function AddCustomer(){
+  var arr=AddingCustomers(Id,Name,Address,phoneno);
+  SetArr(arr);
+  alert('Adding Customer');
+ }
+ function SerachCustomer(){
+  alert('Customer found');
+ }
+
+function Modify(){
+  alert('updated');
+
+}
+function Delete(){
+  alert('Deleted Customer');
+}
+function First(){
+  alert('first');
+}
+function Previous(){
+  alert('previous');
+}
+function Next(){
+  alert('Next');
+}
+function Last(){
+  alert('Last');
+}
+
+  return (
+    <>
+  <center><h1>CUSTOMER MANAGEMENT SYSTEM</h1></center>
+  <div className='wrapper'>
+  <div class="col-sm-12 col-xl-6 col-lg-6 col-md-6">
+  <label for="exampleFormControlInput1" class="form-label">ID</label>
+  <input type="ID" class="form-control" id="Box1" placeholder="Enter your Id" value={Id}
+  onChange={ChangeId}/>
+  </div>
+
+  <div class="col-sm-12 col-xl-6 col-lg-6 col-md-6">
+  <label for="exampleFormControlInput1" class="form-label">Name</label>
+  <input type="Name" class="form-control" id="Box1" placeholder="Enter Your Name" value={Name}
+  onChange={ChangeName}/>
+  </div>
+
+  <div class="col-sm-12 col-xl-6 col-lg-6 col-md-6">
+  <label for="exampleFormControlInput1" class="form-label">Adresse</label>
+  <input type="Adresse" class="form-control" id="Box1" placeholder="Enter Your Address" value={Address}
+  onChange={ChangeAddress}/>
+  </div>
+
+  <div class="col-sm-12 col-xl-6 col-lg-6 col-md-6">
+  <label for="exampleFormControlInput1" class="form-label">Phone No.</label>
+  <input type="Phone Number" class="form-control" id="Box1" placeholder="Enter Your Number" value={phoneno}
+  onChange={ChangePhoneno}/>
+  </div>
+  </div><br></br>
+
+<div><center>
+<button type="button" class="btn btn-primary" onClick={AddCustomer}>Add</button>
+
+<button type="button" class="btn btn-secondary" onClick={SerachCustomer}>Search</button>
+
+<button type="button" class="btn btn-success" onClick={Modify}>Modify</button>
+
+<button type="button" class="btn btn-danger" onClick={Delete}>Delete</button><br/>
+
+<button type="button" class="btn btn-warning" onClick={First}>First</button>
+
+<button type="button" class="btn btn-info" onClick={Previous}>Previous</button>
+
+<button type="button" class="btn btn-primary" onClick={Next}>Next</button>
+
+<button type="button" class="btn btn-dark" onClick={Last}>Last</button>
+
+
+</center>
+  </div>
+
+  <div>
+  <ShowCustomer arr={Cusarr}/>
+  </div>
+    </>
+  )
+}

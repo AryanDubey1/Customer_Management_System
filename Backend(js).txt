@@ -1,0 +1,6 @@
+var AddCus=[];
+export function AddingCustomers(Id,Name,Address,phoneno){
+var cus={Id:Id,Name:Name,Address:Address,phoneno:phoneno};
+AddCus.push(cus);
+return ([...AddCus]);
+}
